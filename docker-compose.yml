@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   app:
     build:
@@ -14,19 +12,20 @@ services:
       - "8000:8000"
     networks:
       - laravel
+    depends_on:
+      - db
 
-#   db:
-#     image: mysql:8.0
-#     container_name: laravel_db
-#     ports:
-#       - "3306:3306"
-#     environment:
-#       MYSQL_ROOT_PASSWORD: root
-#       MYSQL_DATABASE: laravel
-#       MYSQL_USER: laravel
-#       MYSQL_PASSWORD: laravel
-#     networks:
-#       - laravel
+  db:
+    image: postgres:13
+    container_name: laravel_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: DBforBus
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: cpokyxa11111
+    networks:
+      - laravel
 
 networks:
   laravel:
