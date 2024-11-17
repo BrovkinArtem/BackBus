@@ -1,16 +1,16 @@
-<?
+<?php
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Stop extends Model
 {
-    use HasFactory;
+    protected $fillable = ['name'];
 
-    // Устанавливаем связь с автобусами
     public function buses()
     {
-        return $this->belongsToMany(Bus::class, 'bus_stop', 'stop_id', 'bus_id');
+        return $this->belongsToMany(Bus::class, 'bus_stop')
+                    ->withPivot('direction');
     }
 }
+
