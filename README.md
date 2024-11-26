@@ -1,5 +1,5 @@
 # BackBus
-psql -h laravel_db -p 5432 -U postgres -d DBforBus - вход в базу данных докера (пароль: cpokyxa11111)
+psql -h laravel_db -p 5432 -U postgres -d DBforBus - вход в базу данных докера
 
 php artisan migrate - миграции
 
